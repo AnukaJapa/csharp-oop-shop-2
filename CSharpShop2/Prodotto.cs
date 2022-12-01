@@ -14,15 +14,21 @@ namespace CSharpShop2
         protected string descrizione;
         protected int prezzo;
         protected int iva;
+        protected string sorgente;
 
-        public Prodotto(int prezzo, int iva, string nome = "prodotto")
+        public Prodotto(int prezzo, int iva, string sorgente, string nome = "prodotto")
         {
             this.nome = nome;
             this.codice = GeneraCodice();
             this.prezzo = prezzo;
             this.iva = iva;
+            this.sorgente = sorgente;
         }
         
+        public string GetSorgente()
+        {
+            return this.sorgente;
+        }
         public int GetCodice()
         {
             return this.codice;
