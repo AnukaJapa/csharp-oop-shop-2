@@ -73,6 +73,24 @@ namespace CSharpShop2
             this.litri = 0;
         }
 
+        public override string StampapProdotto()
+        {
+            int prezzoSenzaIva = this.prezzo;
+            int prezzoConIva = this.GetPrezzoConIva();
 
+
+            this.descrizione = $@" 
+    nome del Prodotto: {this.nome + this.codice}
+    codice: {this.codice}
+    prezzo del Prodotto: {prezzoSenzaIva}
+    prezzo con Iva: {prezzoConIva}
+    iva: {this.iva}
+    litri contenuti : {this.litri}
+    ph : {this.ph}
+    sorgente : {this.sorgente}
+-----------------------------------------------------
+";
+            return descrizione;
+        }
     }
 }

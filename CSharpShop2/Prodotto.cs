@@ -39,7 +39,7 @@ namespace CSharpShop2
             return this.prezzo;
         }
 
-        public string GetDescrizione()
+        public virtual string StampapProdotto()
         {
             int prezzoSenzaIva = this.prezzo;
             int prezzoConIva = this.GetPrezzoConIva();
@@ -51,6 +51,7 @@ namespace CSharpShop2
     prezzo del Prodotto: {prezzoSenzaIva}
     prezzo con Iva: {prezzoConIva}
     iva: {this.iva}
+    sorgente: {this.sorgente}
 -----------------------------------------------------
 ";
             return descrizione;
