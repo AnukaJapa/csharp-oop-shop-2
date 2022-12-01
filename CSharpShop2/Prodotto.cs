@@ -12,7 +12,7 @@ namespace CSharpShop2
         protected int codice;
         protected string nome;
         protected string descrizione;
-        protected int prezzo;
+        protected double prezzo;
         protected int iva;
 
         public Prodotto(int prezzo, int iva, string nome = "prodotto")
@@ -28,15 +28,15 @@ namespace CSharpShop2
             return this.codice;
         }
 
-        public int GetPrezzoSenzaIva()
+        public double GetPrezzoSenzaIva()
         {
             return this.prezzo;
         }
 
         public virtual void StampaProdotto()
         {
-            int prezzoSenzaIva = this.prezzo;
-            int prezzoConIva = this.GetPrezzoConIva();
+            double prezzoSenzaIva = this.prezzo;
+            double prezzoConIva = this.GetPrezzoConIva();
 
 
             this.descrizione = $@" 
@@ -66,7 +66,7 @@ namespace CSharpShop2
             this.nome = nome;
         }
 
-        public void SetPrezzo(int prezzo)
+        public void SetPrezzo(double prezzo)
         {
             this.prezzo = prezzo;
         }
@@ -76,9 +76,9 @@ namespace CSharpShop2
             this.iva = iva;
         }
 
-        public int GetPrezzoConIva()
+        public double GetPrezzoConIva()
         {
-            int prezzoConIva = this.prezzo + (this.prezzo * this.iva / 100);
+            double prezzoConIva = this.prezzo + (this.prezzo * this.iva / 100);
             return prezzoConIva;
         }
 

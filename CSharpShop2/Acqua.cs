@@ -37,6 +37,7 @@ namespace CSharpShop2
             return this.ph;
         }
         //SETTERS
+
         public void SetLitri(double litri)
         {
 
@@ -80,6 +81,7 @@ namespace CSharpShop2
             this.litri = 0;
         }
 
+        
         public override void StampaProdotto()
         {
             int prezzoSenzaIva = this.prezzo;

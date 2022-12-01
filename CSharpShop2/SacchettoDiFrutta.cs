@@ -39,10 +39,12 @@ namespace CSharpShop2
             if (listaFrutta.Count > 5)
             {
                 Console.WriteLine("non puoi aggiungere al sacchetto una lista della frutta contenente più dui 5 frutta!");
-                for (int i=5; i<listaFrutta.Count; i++)
+
+                for (int i = listaFrutta.Count -1; i>=5; i--)
                 {
                     listaFrutta.RemoveAt(i);
                 }
+
                 this.listaDellaFrutta = listaFrutta;
 
             } else
@@ -52,6 +54,37 @@ namespace CSharpShop2
              
 
         }
+        private string elencareListaFrutta()
+        {
+            string lista = "";
+            foreach(string frutta in this.listaDellaFrutta)
+            {
+                lista += frutta + "\n              ";
+            }
+            return lista;
+        }
+        public override void StampaProdotto()
+        {
+            int prezzoSenzaIva = this.prezzo;
+            int prezzoConIva = this.GetPrezzoConIva();
 
-    }
+
+            this.descrizione = $@" 
+-----------------------------------------------------
+    nome del Prodotto: {this.nome + this.codice}
+    codice: {this.codice}
+    prezzo del Prodotto: {prezzoSenzaIva}
+    prezzo con Iva: {prezzoConIva}
+    iva: {this.iva}
+
+            Frutta che Contiene il Sacchetto : 
+
+              {elencareListaFrutta()}
+-----------------------------------------------------
+";
+            Console.WriteLine(descrizione);
+        }
+
+}
+
 }
