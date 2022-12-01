@@ -10,16 +10,23 @@ namespace CSharpShop2
     public class Acqua : Prodotto
     {
         protected double litri;
-        protected int ph; 
-        public Acqua(int prezzo, int iva, double litri, int ph, string nome = "prodotto") : base(prezzo, iva, nome)
+        protected int ph;
+        protected string sorgente;
+        public Acqua(int prezzo, int iva, double litri, int ph, string sorgente, string nome = "prodotto") : base(prezzo, iva, nome)
         {
             
            SetLitri(litri);
             this.ph= ph;
+            this.sorgente = sorgente;
 
         }
 
         // GETTERS
+
+        public string GetSorgente()
+        {
+            return this.sorgente;
+        }
         public double GetLitri()
         {
             return this.litri;
@@ -73,13 +80,14 @@ namespace CSharpShop2
             this.litri = 0;
         }
 
-        public override string StampapProdotto()
+        public override void StampaProdotto()
         {
             int prezzoSenzaIva = this.prezzo;
             int prezzoConIva = this.GetPrezzoConIva();
 
 
             this.descrizione = $@" 
+-----------------------------------------------------
     nome del Prodotto: {this.nome + this.codice}
     codice: {this.codice}
     prezzo del Prodotto: {prezzoSenzaIva}
@@ -90,7 +98,7 @@ namespace CSharpShop2
     sorgente : {this.sorgente}
 -----------------------------------------------------
 ";
-            return descrizione;
+            Console.WriteLine(descrizione);
         }
     }
 }

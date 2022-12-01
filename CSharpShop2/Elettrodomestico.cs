@@ -6,7 +6,17 @@ using System.Threading.Tasks;
 
 namespace CSharpShop2
 {
-    internal class Elettrodomestico
+    public class Elettrodomestico : Prodotto
     {
+        private int garantiaAnno;
+        public Elettrodomestico(int prezzo,int iva, int garanziaAnno, string nome = "prodotto") : base(prezzo, iva, nome)
+        {
+            this.garantiaAnno = garanziaAnno;
+        }
+
+        public int GetGaranziaAnno()
+        {
+            return this.garantiaAnno;
+        }
     }
 }

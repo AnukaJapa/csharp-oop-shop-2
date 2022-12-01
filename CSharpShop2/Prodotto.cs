@@ -14,21 +14,15 @@ namespace CSharpShop2
         protected string descrizione;
         protected int prezzo;
         protected int iva;
-        protected string sorgente;
 
-        public Prodotto(int prezzo, int iva, string sorgente, string nome = "prodotto")
+        public Prodotto(int prezzo, int iva, string nome = "prodotto")
         {
             this.nome = nome;
             this.codice = GeneraCodice();
             this.prezzo = prezzo;
             this.iva = iva;
-            this.sorgente = sorgente;
         }
         
-        public string GetSorgente()
-        {
-            return this.sorgente;
-        }
         public int GetCodice()
         {
             return this.codice;
@@ -39,22 +33,22 @@ namespace CSharpShop2
             return this.prezzo;
         }
 
-        public virtual string StampapProdotto()
+        public virtual void StampaProdotto()
         {
             int prezzoSenzaIva = this.prezzo;
             int prezzoConIva = this.GetPrezzoConIva();
 
 
             this.descrizione = $@" 
-    nome del Prodotto: {this.nome + this.codice}
-    codice: {this.codice}
+-----------------------------------------------------
+    nome del Prodotto: {this.nome + PadMethod()}
+    codice: {PadMethod()}
     prezzo del Prodotto: {prezzoSenzaIva}
     prezzo con Iva: {prezzoConIva}
     iva: {this.iva}
-    sorgente: {this.sorgente}
 -----------------------------------------------------
 ";
-            return descrizione;
+            Console.WriteLine(descrizione);
         }
 
         public string GetNome()
@@ -107,7 +101,7 @@ namespace CSharpShop2
         private int GeneraCodice()
         {
             Random numeroRandom = new Random();
-            return numeroRandom.Next(0, 1000);
+            return numeroRandom.Next(1, 1000);
         }
 
     }
