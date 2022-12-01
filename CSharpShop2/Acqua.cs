@@ -67,6 +67,12 @@ namespace CSharpShop2
                 this.litri = this.litri + litriDaRiempire; 
             }
         }
+ 
+        public void Svuota()
+        {
+            this.litri = 0;
+        }
+
 
     }
 }
